@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db99fd3e0f4b4e84d9180ee109a0e304, type: 3}
+  m_Name: "\uC544\uCFE0\uB9C1 \uC9C4\uBB3C"
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300038, guid: 3f7526239126c55459538f977e0d29ec, type: 3}
+  stackSize: 99
+  title: "\uC544\uCFE0\uB9C1 \uC9C4\uBB3C"
+  quality: 0
+  price: 0
+  itemNumber: 10
+  isRemovable: 1

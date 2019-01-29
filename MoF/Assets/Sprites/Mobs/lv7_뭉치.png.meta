@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: fa6468ce9f0496e4abe4d4bbedb66a6f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "lv7_\uBB49\uCE58_0"
+    21300002: "lv7_\uBB49\uCE58_1"
+    21300004: "lv7_\uBB49\uCE58_2"
+    21300006: "lv7_\uBB49\uCE58_3"
+    21300008: "lv7_\uBB49\uCE58_4"
+    21300010: "lv7_\uBB49\uCE58_5"
+    21300012: "lv7_\uBB49\uCE58_6"
+    21300014: "lv7_\uBB49\uCE58_7"
+    21300016: "lv7_\uBB49\uCE58_8"
+    21300018: "lv7_\uBB49\uCE58_9"
+    21300020: "lv7_\uBB49\uCE58_10"
+    21300022: "lv7_\uBB49\uCE58_11"
+    21300024: "lv7_\uBB49\uCE58_12"
+    21300026: "lv7_\uBB49\uCE58_13"
+    21300028: "lv7_\uBB49\uCE58_14"
+    21300030: "lv7_\uBB49\uCE58_16"
+    21300032: "lv7_\uBB49\uCE58_17"
+    21300034: "lv7_\uBB49\uCE58_19"
+    21300036: "lv7_\uBB49\uCE58_22"
+    21300038: "lv7_\uBB49\uCE58_24"
+    21300040: "lv7_\uBB49\uCE58_25"
+    21300042: "lv7_\uBB49\uCE58_26"
+    21300044: "lv7_\uBB49\uCE58_27"
+    21300046: "lv7_\uBB49\uCE58_28"
+    21300048: "lv7_\uBB49\uCE58_29"
+    21300050: "lv7_\uBB49\uCE58_31"
+    21300052: "lv7_\uBB49\uCE58_32"
+    21300054: "lv7_\uBB49\uCE58_33"
+    21300056: "lv7_\uBB49\uCE58_34"
+    21300058: "lv7_\uBB49\uCE58_35"
+    21300060: "lv7_\uBB49\uCE58_36"
+    21300062: "lv7_\uBB49\uCE58_37"
+    21300064: "lv7_\uBB49\uCE58_38"
+    21300066: "lv7_\uBB49\uCE58_39"
+    21300068: "lv7_\uBB49\uCE58_40"
+    21300070: "lv7_\uBB49\uCE58_41"
+    21300072: "lv7_\uBB49\uCE58_42"
+    21300074: "lv7_\uBB49\uCE58_43"
+    21300076: "lv7_\uBB49\uCE58_44"
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 473
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8de3e4958d8604aa3b10b5a84fed13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_1"
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 474
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9c2041648f1a849942ed9f88d5790a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_2"
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 476
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983c641e1adfd2a46b333e101b05c384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_3"
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 476
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bc0bc5f0c3c3f42a5f5112d0e5e561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_4"
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 475
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930247fada211934c9cd7b74d9e6fca6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_5"
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 476
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005bdb1a34dcdb940884c23166788818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_6"
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 477
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4400894d579172346bf51d8da48aa03a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_7"
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 475
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990d02b02c77096489b80323926ef549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_8"
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 463
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0ed4d3ecbf23d43bbd2034323cba52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_9"
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 463
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dea988f1686b4b438334e6a11468ab5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_10"
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 421
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639132530b826f9428a8d6ca199638c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_11"
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 421
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2febe7455b03c664e9e0b8cd00ba3383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_12"
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 423
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdc6542a49945048b879f161a1f528d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_13"
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 423
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38c5b84aa2bddd43b46ecf86bf66c51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_14"
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 413
+        width: 67
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0976987fb1354864b965dc3366d6d929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_16"
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 414
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc9bc987272a8c49aaaf0dadded0afa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_17"
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 412
+        width: 69
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e15c9d1763279c48986621ec59ee2c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_19"
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 414
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267ccde9901f27546ab8f7c7c612947b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_22"
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 364
+        width: 69
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518bb64fb426f06478836ddba2d9b06b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_24"
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 365
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44d4d8b3ecd3e440a37eb366e0c3a21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_25"
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 362
+        width: 59
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a7da7cd092f744ca02cf50755f8d3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_26"
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 364
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f56a1f00f099674aadd0b0dcd4e8a07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_27"
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 361
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b18a6b5622a4742bbc22fe04a1f576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_28"
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 361
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c47aca9eaa96a04f877f4b9cc15573a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_29"
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 361
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b81d992182a414185fe7b45fb30486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_31"
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 307
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d1f71e82cdea341a8f413c092a1513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_32"
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 307
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff6ee57ae2eb414ea6554e9592797c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_33"
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 317
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6205e3c3335c8f543ae78a5f0f8c80e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_34"
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 309
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4337d415b4c394faaeac3f9e07092f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_35"
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 309
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68395ec08444834ba9e4943ca276dfe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_36"
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 346
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9dac7de34152d4c80aac68bcf0244f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_37"
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 345
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e2dce41a04e094190a01e6e1d6099d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_38"
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 315
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1743804f0d25de4d9bd1b5db06f3ece
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_39"
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 338
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515f9f47854e72a4b92a214861170ac4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_40"
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 311
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275cd991c9527884fb8b905ed423666b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_41"
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 265
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3a2a24d04b8ab4b8edce58a86541e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_42"
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 247
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4a2c17084f9364fa152d1244eaf7eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_43"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 248
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd8447720b7c3e439e40dfe84ef0d14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lv7_\uBB49\uCE58_44"
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 259
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448497306a05a0f4e853fbea198e5f31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 47f8aa1dad1610743bc1c83c1981ae95
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

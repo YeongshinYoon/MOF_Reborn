@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: cbd7a594e53dd434f9819f610bdb685e
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_LearningStreet.unity
+    guid: 67308e548d3d8f843a98ed46dab83b9c
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_Academy.unity
+    guid: 6a29f10757c25634b98d25fb7cb95c3f
+  - enabled: 1
+    path: Assets/Scenes/Fighter.unity
+    guid: 826fab3b77becf04bb980ffe7155675f
+  - enabled: 1
+    path: Assets/Scenes/Archer.unity
+    guid: 8f1d7a514cf22cc458a98bc7db3f6c25
+  - enabled: 1
+    path: Assets/Scenes/Mage.unity
+    guid: ea71be6c60c76494abd217a4daf5d646
+  - enabled: 1
+    path: Assets/Scenes/Cleric.unity
+    guid: 2b7f2f91846449742b6d3d47985507e9
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_CentralSquare.unity
+    guid: 2489bfcbd16a11240acc77d59af31a6b
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_MasterStreet.unity
+    guid: 1c1e9a288a41ff74aad982085061b120
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_GeneralStore.unity
+    guid: 339d8b54ef0ca9e4b8f03f3a60b3d598
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_Market.unity
+    guid: 7334790464dc31e4a950f3d2edf5b4ed
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_Harbor.unity
+    guid: 13763258ac148ad4c9ef936da9cdccc1
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_TravelerStreet.unity
+    guid: a6b1a699165ad2946ba7428c48961f92
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_Bar.unity
+    guid: de4da5d12c2e9b542880636ddacd25d7
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_BarShed.unity
+    guid: 773645e84927ee041aeb549e2aa9d93c
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_ThiefGuild.unity
+    guid: 7ae1f1eb8eb16854798ae48cba455460
+  - enabled: 1
+    path: Assets/Scenes/RibiTown_Smithy.unity
+    guid: 64bb369e668cef84ea1b21555087d678
+  - enabled: 1
+    path: Assets/Scenes/RoadOfArcher.unity
+    guid: e523d592f1240a648abe31ffbbc6d769
+  - enabled: 1
+    path: Assets/Scenes/RoadOfFighter.unity
+    guid: 83ebc90782d8ac04e8c3cf608c1c8abb
+  - enabled: 1
+    path: Assets/Scenes/MagicHill.unity
+    guid: e53fbc768dca5934c9353e745f0a66ed
+  - enabled: 1
+    path: Assets/Scenes/HamburgerHill.unity
+    guid: 9ecdf686246cdcd4aaccf09ce4d0fb9c
+  m_configObjects: {}
