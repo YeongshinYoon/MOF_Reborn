@@ -50,7 +50,18 @@ public class AttackState : IState {
         numbers = DamageTextManager.MyInstance.seperateNumber(parent.MyDamage);
 
         for (int i = 0; i < numbers.Length; i++)
-            DamageTextManager.MyInstance.CreateText(Player.MyInstance.transform.position, numbers[i], DMGTEXTTYPE.DAMAGED, false);
+        {
+            float adj = numbers.Length / 2;
+
+            if (numbers.Length % 2 == 0)
+                adj -= 0.5f;
+
+            Vector3 tmpVector3 = new Vector3(0.4f * (i - adj), 0, 0);
+
+            tmpVector3 += parent.MyTarget.transform.position;
+
+            DamageTextManager.MyInstance.CreateText(tmpVector3, numbers[i], DMGTEXTTYPE.DAMAGED, false);
+        }
 
         Player.MyInstance.MyHealth.MyCurrentValue -= parent.MyDamage;
 

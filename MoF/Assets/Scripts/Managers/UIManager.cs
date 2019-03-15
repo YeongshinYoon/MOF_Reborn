@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField]
+    private CanvasGroup[] menus;
+
+    [SerializeField]
     private SlotButton[] slotButtons;
 
     [SerializeField]
@@ -73,45 +76,84 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (preload.MyInstance.MyUICanvas.activeSelf)
         {
-            OpenClose(keybindMenu);
+            //ESC
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OpenClose(menus[0]);
+            }
+            //Inventory
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                OpenClose(menus[1]);
+            }
+            //SpellBook
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                OpenClose(menus[2]);
+            }
+            //Equipment
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                OpenClose(menus[3]);
+            }
+            //Questlog
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                OpenClose(menus[4]);
+            }
+            //Character Information
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                OpenClose(menus[5]);
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            OpenClose(spellBook);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            InventoryScript.MyInstance.OpenClose();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            equipment.OpenClose();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            charinfo.OpenClose();
-        }
-
-        //if (Input.GetKeyDown(KeyCode.G))
+        //if (Input.GetKeyDown(KeyCode.F2))
         //{
-        //    DataManager.MyInstance.Save();
+        //    OpenClose(keybindMenu);
         //}
 
-        //if (Input.GetKeyDown(KeyCode.F))
+        //if (Input.GetKeyDown(KeyCode.S))
         //{
-        //    DataManager.MyInstance.Load();
+        //    OpenClose(spellBook);
         //}
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    equipment.OpenClose();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    charinfo.OpenClose();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    Questlog.MyInstance.OpenClose();
+        //}
+    }
+
+    public void OpenSingle(CanvasGroup canvasGroup)
+    {
+        foreach (CanvasGroup canvas in menus)
         {
-            Questlog.MyInstance.OpenClose();
+            CloseSingle(canvas);
         }
+
+        if (canvasGroup.gameObject.name == "SaveGame")
+        {
+            SaveManager.MyInstance.RefreshSaveSlots(SaveManager.MyInstance.MyIngameSaveSlots);
+        }
+
+        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
+        canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
+    }
+
+    public void CloseSingle(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void showTargetFrame(Enemy target)

@@ -87,13 +87,13 @@ public class Quest : MonoBehaviour
     }
 
     [SerializeField]
-    private string questGiver;
+    private string questGiverName;
 
-    public string MyQuestGiver
+    public string MyQuestGiverName
     {
         get
         {
-            return questGiver;
+            return questGiverName;
         }
     }
 

@@ -25,11 +25,14 @@ public class QuestScript : MonoBehaviour {
 
     public void IsComplete()
     {
-        if (MyQuest.IsCompletable && !MyQuest.messagePopuped)
+        if (MyQuest.IsCompletable)
         {
-            MyQuest.messagePopuped = true;
-            MessageFeedManager.MyInstance.WriteMessage(string.Format("{0} 퀘스트 완료 !", MyQuest.MyTitle));
             completion.text = "완료";
+            if (!MyQuest.messagePopuped)
+            {
+                MyQuest.messagePopuped = true;
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0} 퀘스트 완료 !", MyQuest.MyTitle));
+            }
         }
         else if (!MyQuest.IsCompletable)
         {

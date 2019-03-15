@@ -10,6 +10,14 @@ public class EquipmentButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     private Armor equippedArmor;
 
+    public Armor MyEquippedArmor
+    {
+        get
+        {
+            return equippedArmor;
+        }
+    }
+
     [SerializeField]
     private Image icon;
 

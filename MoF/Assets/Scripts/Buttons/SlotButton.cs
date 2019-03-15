@@ -114,8 +114,11 @@ public class SlotButton : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         if (usable is Item)
         {
             MyUsables = InventoryScript.MyInstance.GetUsables(usable);
-            InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
-            InventoryScript.MyInstance.FromSlot = null;
+            if (InventoryScript.MyInstance.FromSlot != null)
+            {
+                InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
+                InventoryScript.MyInstance.FromSlot = null;
+            }
         }
         else
         {
@@ -124,13 +127,18 @@ public class SlotButton : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         }
 
         count = MyUsables.Count;
-        UpdateVisual();
+        UpdateVisual(usable as IMovable);
         UIManager.MyInstance.RefreshToolTip(MyUsable as IDescribable);
     }
 
-    public void UpdateVisual()
+    public void UpdateVisual(IMovable movable)
     {
-        MyIcon.sprite = HandScript.MyInstance.Put().MyIcon;
+        if (HandScript.MyInstance.MyMovable != null)
+        {
+            HandScript.MyInstance.Drop();
+        }
+
+        MyIcon.sprite = movable.MyIcon;
         MyIcon.color = Color.white;
 
         if (count > 1)

@@ -8,6 +8,8 @@ public delegate void KillConfirmed(Enemy enemy);
 public class GameManager : MonoBehaviour {
     public event KillConfirmed killConfirmEvent;
 
+    private Camera mainCamera;
+
     private static GameManager instance;
 
     public static GameManager MyInstance
@@ -44,19 +46,96 @@ public class GameManager : MonoBehaviour {
     private float[] dists;
     private float[,] sorteddists;
     private int curindex = 0;
+    //private int targetIndex;
+
+    private void Start()
+    {
+        //mainCamera = Camera.main;
+    }
 
     // Update is called once per frame
     void Update () 
     {
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
         TabTarget();
 
         ClickTarget();
+
+        //NextTarget();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             player.StopInteract();
         }
 	}
+
+    private void DeSelectTarget()
+    {
+        if (currentTarget != null)
+        {
+            currentTarget.DeSelect();
+        }
+    }
+
+    private void SelectTarget(Enemy enemy)
+    {
+        currentTarget = enemy;
+        player.MyTarget = currentTarget.Select();
+        UIManager.MyInstance.showTargetFrame(currentTarget);
+    }
+
+    private void ClickTarget()
+    {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
+            
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag == "Interactable")
+                {
+                    player.Interact();
+                }
+                else 
+                {
+                    DeSelectTarget();
+
+                    SelectTarget(hit.collider.GetComponent<Enemy>());
+                }
+            }
+            else
+            {
+                UIManager.MyInstance.hideTargetFrame();
+
+                DeSelectTarget();
+
+                currentTarget = null;
+                player.MyTarget = null;
+            }
+        }
+        else if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
+
+            if (hit.collider != null)
+            {
+                IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
+
+                //hit.collider.GetComponent<NPC>().Interact();
+                entity.Interact();
+            }
+        }
+    }
+
+    public void OnKillConfirmed(Enemy enemy)
+    {
+        if (killConfirmEvent != null)
+        {
+            killConfirmEvent(enemy);
+        }
+    }
 
     private void FloatInsertionSort(float[] list, int size)
     {
@@ -86,8 +165,30 @@ public class GameManager : MonoBehaviour {
     public void calculatedLists()
     {
         curindex = 0;
+        int count = 0;
 
-        mobs = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            if (temp[i].GetComponent<Enemy>().MyHealth.MyCurrentValue > 0)
+            {
+                count++;
+            }
+        }
+
+        mobs = new GameObject[count];
+
+        count = 0;
+
+        for (int i = 0; i < temp.Length; i++)
+        {
+            if (temp[i].GetComponent<Enemy>().MyHealth.MyCurrentValue > 0)
+            {
+                mobs[count++] = temp[i];
+            }
+        }
+
         poss = new Transform[mobs.Length];
         dists = new float[mobs.Length];
 
@@ -110,7 +211,7 @@ public class GameManager : MonoBehaviour {
 
             if (mobs.Length > 0)
             {
-                if (currentTarget != null) currentTarget.DeSelect();
+                DeSelectTarget();
 
                 currentTarget = mobs[(int)sorteddists[curindex++, 1]].GetComponent<Enemy>();
                 while (currentTarget.MyHealth.MyCurrentValue <= 0)
@@ -126,10 +227,7 @@ public class GameManager : MonoBehaviour {
             {
                 UIManager.MyInstance.hideTargetFrame();
 
-                if (currentTarget != null)
-                {
-                    currentTarget.DeSelect();
-                }
+                DeSelectTarget();
 
                 currentTarget = null;
                 player.MyTarget = null;
@@ -137,58 +235,28 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void ClickTarget()
+    /*private void NextTarget()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < temp.Length; i++)
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
-            
-            if (hit.collider != null)
+            Player.MyInstance.AddAttacker(temp[i].GetComponent<Enemy>());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            DeSelectTarget();
+
+            if (Player.MyInstance.MyAttackers.Count > 0)
             {
-                if (hit.collider.tag == "Interactable")
+                SelectTarget(Player.MyInstance.MyAttackers[targetIndex]);
+                targetIndex++;
+
+                if (targetIndex >= Player.MyInstance.MyAttackers.Count)
                 {
-                    player.Interact();
-                }
-                else 
-                {
-                    if (currentTarget != null) currentTarget.DeSelect();
-
-                    currentTarget = hit.collider.GetComponent<Enemy>();
-
-                    player.MyTarget = currentTarget.Select();
-
-                    UIManager.MyInstance.showTargetFrame(currentTarget);
+                    targetIndex = 0;
                 }
             }
-            else
-            {
-                UIManager.MyInstance.hideTargetFrame();
-
-                if (currentTarget != null)
-                {
-                    currentTarget.DeSelect();
-                }
-
-                currentTarget = null;
-                player.MyTarget = null;
-            }
         }
-        //else if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
-
-        //    if (hit.collider != null && hit.collider.tag == "Enemy")
-        //    {
-        //        hit.collider.GetComponent<NPC>().Interact();
-        //    }
-        //}
-    }
-
-    public void OnKillConfirmed(Enemy enemy)
-    {
-        if (killConfirmEvent != null)
-        {
-            killConfirmEvent(enemy);
-        }
-    }
+    }*/
 }

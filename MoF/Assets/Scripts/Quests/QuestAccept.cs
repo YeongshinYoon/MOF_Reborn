@@ -279,7 +279,7 @@ public class QuestAccept : MonoBehaviour
         {
             acceptBtn.SetActive(true);
             completeBtn.SetActive(false);
-            npcName.text = quest.MyQuestGiver;
+            npcName.text = quest.MyQuestGiverName;
             questGiverImage.sprite = quest.MyQuestGiverImage;
             questGiverImage.gameObject.SetActive(true);
             description.text = quest.MyDescription;

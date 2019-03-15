@@ -5,12 +5,12 @@ using UnityEngine;
 public class LootTable : MonoBehaviour 
 {
     [SerializeField]
-    private Loot[] loots;
+    protected Loot[] loots;
 
     [SerializeField]
     private int[] ribi = new int[2];
 
-    private List<Item> droppedItems = new List<Item>();
+    protected List<Item> droppedItems = new List<Item>();
 
     private bool rolled = false;
 
@@ -30,7 +30,7 @@ public class LootTable : MonoBehaviour
         //LootWindow.MyInstance.CreatePages(droppedItems);
     }
 
-    public void RollLoot()
+    protected virtual void RollLoot()
     {
         foreach(Loot loot in loots)
         {

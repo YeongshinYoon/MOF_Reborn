@@ -342,17 +342,22 @@ public class InventoryScript : MonoBehaviour {
 
     void Start() 
     {
-        currentBagNumber = 1;    
+        currentBagNumber = 1;
+        allocateSlotIndex(slots);
+        allocateSlotIndex(slots2);
+        allocateSlotIndex(slots3);
     }
 
     private void Update()
     {
         Ribi_t.text = Ribi.ToString();
 
+        UpdateBagIndex();
+
         if (Input.GetKeyDown(KeyCode.J)) 
         {
-            for (int i = 0; i < 10; i++)
-                AddItem(items[1]);
+            AddItem(items[21]);
+            AddItem(items[22]);
         }
 
         switch (currentBagNumber) 
@@ -404,6 +409,19 @@ public class InventoryScript : MonoBehaviour {
             }
         }
         return PlaceInEmpty_SellBasket(item);
+    }
+
+    public void PlaceInSpecific(Item item, int slotIndex, int bagIndex)
+    {
+        switch (bagIndex)
+        {
+            case 0: slots[slotIndex].AddItem(item);
+                break;
+            case 1: slots2[slotIndex].AddItem(item);
+                break;
+            case 2: slots3[slotIndex].AddItem(item);
+                break;
+        }
     }
 
     private bool PlaceInEmpty_BuyBasket(Item item)
@@ -551,6 +569,37 @@ public class InventoryScript : MonoBehaviour {
             canvasGroup.alpha = 0;
         }
     }
+
+    public List<SlotScript> GetAllItems()
+    {
+        List<SlotScript> allitems = new List<SlotScript>();
+
+        foreach (SlotScript slot in slots)
+        {
+            if (!slot.IsEmpty)
+            {
+                allitems.Add(slot);
+            }
+        }
+
+        foreach (SlotScript slot in slots2)
+        {
+            if (!slot.IsEmpty)
+            {
+                allitems.Add(slot);
+            }
+        }
+
+        foreach (SlotScript slot in slots3)
+        {
+            if (!slot.IsEmpty)
+            {
+                allitems.Add(slot);
+            }
+        }
+
+        return allitems;
+    }
     
     public Stack<IUsable> GetUsables(IUsable type)
     {
@@ -591,6 +640,38 @@ public class InventoryScript : MonoBehaviour {
         }
 
         return usables;
+    }
+
+    public IUsable GetUsables(string type)
+    {
+        Stack<IUsable> usables = new Stack<IUsable>();
+
+
+        foreach (SlotScript slot in slots)
+        {
+            if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+            {
+                return (slot.MyItem as IUsable);
+            }
+        }
+
+        foreach (SlotScript slot in slots2)
+        {
+            if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+            {
+                return (slot.MyItem as IUsable);
+            }
+        }
+
+        foreach (SlotScript slot in slots3)
+        {
+            if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+            {
+                return (slot.MyItem as IUsable);
+            }
+        }
+
+        return null;
     }
 
     public void OnItemCountChanged(Item item)
@@ -767,5 +848,31 @@ public class InventoryScript : MonoBehaviour {
         }
 
         return items;
+    }
+
+    public void allocateSlotIndex(List<SlotScript> slots)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            slots[i].MyIndex = i;
+        }
+    }
+
+    public void UpdateBagIndex()
+    {
+        foreach (SlotScript slot in slots)
+        {
+            slot.MyBagIndex = 0;
+        }
+
+        foreach (SlotScript slot in slots2)
+        {
+            slot.MyBagIndex = 1;
+        }
+
+        foreach (SlotScript slot in slots3)
+        {
+            slot.MyBagIndex = 2;
+        }
     }
 }

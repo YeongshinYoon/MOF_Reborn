@@ -18,10 +18,10 @@ public abstract class Character : MonoBehaviour {
 
     public bool IsAttacking { get; set; }
 
-    protected Coroutine attackRoutine;
+    protected Coroutine actionRoutine;
 
     [SerializeField]
-    private float initHealth;
+    protected float initHealth;
 
     [SerializeField]
     protected Transform hitBox;
@@ -30,7 +30,7 @@ public abstract class Character : MonoBehaviour {
     protected Stat health;
 
     [SerializeField]
-    private string Name;
+    protected string Name;
 
     [SerializeField]
     private int Level;
@@ -116,8 +116,6 @@ public abstract class Character : MonoBehaviour {
 
     // Use this for initialization
     protected virtual void Start () {
-        health.Initialize(initHealth, initHealth);
-
         MyAnimator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
 
@@ -174,12 +172,8 @@ public abstract class Character : MonoBehaviour {
         if (health.MyCurrentValue <= 0)
         {
             myRigidbody.velocity = Vector2.zero;
-            MyAnimator.SetTrigger("die");
 
-            if (this is Enemy)
-            {
-                Player.MyInstance.gainExp(XPManager.CalculateXP((this as Enemy)));
-            }
+            MyAnimator.SetTrigger("die");
         }
     }
 
@@ -197,8 +191,23 @@ public abstract class Character : MonoBehaviour {
         numbers = DamageTextManager.MyInstance.seperateNumber(health);
 
         for (int i = 0; i < numbers.Length; i++)
-            DamageTextManager.MyInstance.CreateText(transform.position, numbers[i], DMGTEXTTYPE.HPHEAL, false);
+        {
+            float adj = numbers.Length / 2;
+
+            if (numbers.Length % 2 == 0)
+                adj -= 0.5f;
+
+            Vector3 tmpVector3 = new Vector3(0.4f * (i - adj), 0, 0);
+
+            tmpVector3 += transform.position;
+
+            DamageTextManager.MyInstance.CreateText(tmpVector3, numbers[i], DMGTEXTTYPE.HPHEAL, false);
+        }
     }
 
+    public void setLevel(int level)
+    {
+        Level = level;
+    }
 
 }

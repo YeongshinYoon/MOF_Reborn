@@ -55,7 +55,7 @@ public class DamageTextManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(canvas);
+
     }
 
     //Functions

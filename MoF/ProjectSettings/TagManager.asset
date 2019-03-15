@@ -19,8 +19,8 @@ TagManager:
   - 
   - Block
   - Clickable
-  - 
-  - 
+  - Both
+  - Minimap
   - 
   - 
   - 
@@ -42,21 +42,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3793261977
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Unit
     uniqueID: 1862616247
     locked: 0
-  - name: UIText
-    uniqueID: 1522483419
+  - name: Item
+    uniqueID: 2245298071
     locked: 0
   - name: UI
     uniqueID: 988788137
     locked: 0
-  - name: Item
-    uniqueID: 2245298071
+  - name: SystemMenu
+    uniqueID: 1522483419
     locked: 0

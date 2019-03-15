@@ -88,6 +88,7 @@ public class Enemy : Character, IInteractable
 
     protected void Awake()
     {
+        health.Initialize(initHealth, initHealth);
         myRigidbody = GetComponent<Rigidbody2D>();
         GetComponent<Animator>().SetFloat("MonsterNumber", MonsterNumber);
         MyStartPosition = transform.position;
@@ -131,19 +132,24 @@ public class Enemy : Character, IInteractable
     {
         if (!(currentState is EvadeState))
         {
-            Damaged = true;
-
-            SetTarget(source);
-
-            base.TakeDamage(damage, source);
-
-            OnHealthChanged(health.MyCurrentValue);
-
-            if (health.MyCurrentValue <= 0)
+            if (IsAlive)
             {
-                GameManager.MyInstance.OnKillConfirmed(this);
-                Interact();
+                Damaged = true;
+
+                SetTarget(source);
+
+                base.TakeDamage(damage, source);
+
+                OnHealthChanged(health.MyCurrentValue);
+
+                if (!IsAlive)
+                {
+                    //Player.MyInstance.MyAttackers.Remove(this);
+                    GameManager.MyInstance.OnKillConfirmed(this);
+                    Interact();
+                }
             }
+
         }
     }
     

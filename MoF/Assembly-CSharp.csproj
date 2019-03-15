@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\EnemyStates\FollowState.cs" />
     <Compile Include="Assets\Scripts\EnemyStates\IdleState.cs" />
     <Compile Include="Assets\Scripts\EnemyStates\IState.cs" />
+    <Compile Include="Assets\Scripts\Inventory\GatherLootTable.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryScript.cs" />
     <Compile Include="Assets\Scripts\Inventory\Loot.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootTable.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Assets\Scripts\NPC\VendorSell.cs" />
     <Compile Include="Assets\Scripts\NPC\VendorWindowBuy.cs" />
     <Compile Include="Assets\Scripts\NPC\VendorWindowSell.cs" />
+    <Compile Include="Assets\Scripts\preload.cs" />
     <Compile Include="Assets\Scripts\Quests\Quest.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestAccept.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestAcceptScript.cs" />
@@ -150,9 +152,14 @@
     <Compile Include="Assets\Scripts\Quests\QuestGiver.cs" />
     <Compile Include="Assets\Scripts\Quests\Questlog.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestScript.cs" />
+    <Compile Include="Assets\Scripts\Saving\SaveData.cs" />
+    <Compile Include="Assets\Scripts\Saving\SavedGame.cs" />
+    <Compile Include="Assets\Scripts\Saving\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Spells\Spell.cs" />
     <Compile Include="Assets\Scripts\Spells\SpellBook.cs" />
     <Compile Include="Assets\Scripts\Spells\SpellScript.cs" />
+    <Compile Include="Assets\Scripts\TitleScreenControl.cs" />
     <Compile Include="Assets\Scripts\UIRelated\CharacterInformation.cs" />
     <Compile Include="Assets\Scripts\UIRelated\DamageText.cs" />
     <Compile Include="Assets\Scripts\UIRelated\DialogueBox.cs" />

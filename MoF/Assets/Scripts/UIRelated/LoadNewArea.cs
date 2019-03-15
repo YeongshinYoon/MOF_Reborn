@@ -26,8 +26,9 @@ public class LoadNewArea : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            SceneManager.LoadScene(levelToLoad);
-            Player.MyInstance.startPoint = exitPoint;
+            SoundManager.MyInstance.onWarp();
+            Player.MyInstance.canMove = false;
+            StartCoroutine(TitleScreenControl.MyInstance.LoadingScene(levelToLoad, exitPoint));
         }
     }
 }

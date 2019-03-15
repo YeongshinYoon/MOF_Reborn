@@ -102,7 +102,7 @@ public class CharacterInformation : MonoBehaviour {
         EXP.MyMaxValue = Player.MyInstance.MyExp.MyMaxValue;
         Name.text = Player.MyInstance.MyName;
         Spouse.text = "없음";
-        Class.text = "없음";
+        Class.text = Player.MyInstance.MyClass;
         Level.text = Player.MyInstance.MyLevel + "";
         Grade.text = Player.MyInstance.MyGrade + "";
         Title.text = "없음";

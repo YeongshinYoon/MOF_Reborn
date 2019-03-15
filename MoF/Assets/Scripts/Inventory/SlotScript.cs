@@ -83,6 +83,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         }
     }
 
+    public int MyBagIndex { get; set; }
+
+    public int MyIndex { get; set; }
+
     private void Awake()
     {
         items.OnPop += new UpdateStackEvent(UpdateSlot);

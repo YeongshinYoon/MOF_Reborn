@@ -19,7 +19,7 @@ public class Bounds : MonoBehaviour {
     }
 
     private BoxCollider2D bounds;
-    private CameraFollow camFollow;
+    private CameraFollow[] camFollows;
 
     [SerializeField]
     private EdgeCollider2D MovableBound;
@@ -33,9 +33,13 @@ public class Bounds : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         bounds = GetComponent<BoxCollider2D>();
-        camFollow = FindObjectOfType<CameraFollow>();
-        camFollow.setBounds(bounds);
+        camFollows = FindObjectsOfType<CameraFollow>();
+        foreach (CameraFollow camFollow in camFollows)
+        {
+            camFollow.setBounds(bounds);
+        }
 	}
 }

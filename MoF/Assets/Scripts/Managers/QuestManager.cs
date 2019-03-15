@@ -47,7 +47,7 @@ public class QuestManager : MonoBehaviour {
 
         foreach(Quest quest in quests)
         {
-            if (quest.MyQuestGiver == npcName)
+            if (quest.MyQuestGiverName == npcName)
             {
                 tmpcount++;
             }
@@ -57,7 +57,7 @@ public class QuestManager : MonoBehaviour {
 
         foreach(Quest quest in quests)
         {
-            if (quest.MyQuestGiver == npcName)
+            if (quest.MyQuestGiverName == npcName)
             {
                 tmpquests[tmpindex++] = quest;
             }

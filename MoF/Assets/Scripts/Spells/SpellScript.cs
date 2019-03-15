@@ -14,14 +14,14 @@ public class SpellScript : MonoBehaviour {
 
     private int damage;
 
-    private float SpellNumber;
+    private int SpellNumber;
 
 	// Use this for initialization
 	void Start () {
         myRigidbody = GetComponent<Rigidbody2D>();
 	}
 
-    public void Initialize(Transform target, int damage, float spellNumber, Transform source)
+    public void Initialize(Transform target, int damage, int spellNumber, Transform source)
     {
         MyTarget = target;
         this.damage = damage;

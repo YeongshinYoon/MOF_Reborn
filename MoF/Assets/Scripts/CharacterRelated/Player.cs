@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Player : Character {
+public class Player : Character 
+{
     [SerializeField]
     private Animator[] animators;
 
@@ -25,7 +26,9 @@ public class Player : Character {
     [SerializeField]
     private Exp exp;
 
-    private float initMana = 50;
+    [SerializeField]
+    private float initMana;
+
     public float MyInitMana
     {
         get
@@ -68,8 +71,15 @@ public class Player : Character {
     private int temp_agi;
     private int temp_int;
 
-    [SerializeField]
-    private float attack_cooldown;
+    private string Class;
+
+    public string MyClass
+    {
+        get
+        {
+            return Class;
+        }
+    }
 
     public int MyStr
     {
@@ -185,15 +195,6 @@ public class Player : Character {
 
     public string startPoint;
 
-    [SerializeField]
-    private Canvas canvas;
-
-    [SerializeField]
-    private GameObject managers;
-
-    [SerializeField]
-    private EventSystem eventSystem;
-
     private IInteractable interactable;
 
     private static Player instance;
@@ -213,27 +214,28 @@ public class Player : Character {
 
     public bool moving;
 
+    /*private List<Enemy> attackers = new List<Enemy>();
+
+    public List<Enemy> MyAttackers
+    {
+        get
+        {
+            return attackers;
+        }
+
+        set
+        {
+            attackers = value;
+        }
+    }*/
+
     protected override void Start()
     {
-        mana.Initialize(initMana, initMana);
-        exp.Initialize(0.0f, Mathf.Floor(50*MyLevel*Mathf.Pow(MyLevel, 0.5f)));
-        statinit();
-
-        playerName.text = MyName;
-        playerLevel.text = "Lv." + MyLevel;
-        
+        DefaultValue();
 
         if (!playerExists)
         {
             playerExists = true;
-            DontDestroyOnLoad(canvas);
-            DontDestroyOnLoad(managers);
-            DontDestroyOnLoad(eventSystem);
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
 
         base.Start();
@@ -252,10 +254,53 @@ public class Player : Character {
         base.Update();
 	}
 
-    private void statinit()
+    public void CreateNewCharacter(string name, string Class, int level, int str, int vit, int agi, int intel)
     {
-        strength = vitality = agility = intellegence = 4;
-        statpoint = 10;
+
+        health.Initialize(initHealth, initHealth);
+        mana.Initialize(initMana, initMana);
+        exp.Initialize(0.0f, Mathf.Floor(50 * level * Mathf.Pow(level, 0.5f)));
+        statinit(str, vit, agi, intel, 0);
+        Name = name;
+        playerName.text = name;
+        setLevel(level);
+        this.Class = Class;
+
+        playerLevel.text = "Lv." + level;
+    }
+
+    public void LoadCharacterInfo(string name, string Class, float xp, float hp, float maxhp, float mp, float maxmp, int level, int str, int vit, int agi, int intel, int bonus, float x, float y)
+    {
+        Name = name;
+        playerName.text = Name;
+        setLevel(level);
+        UpdateLevelText();
+        MyHealth.Initialize(hp, maxhp);
+        MyMana.Initialize(mp, maxmp);
+        MyExp.Initialize(xp, Mathf.Floor(50 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        statinit(str, vit, agi, intel, bonus);
+        transform.position = new Vector2(x, y);
+        this.Class = Class;
+    }
+
+    private void DefaultValue()
+    {
+        health.Initialize(initHealth, initHealth);
+        mana.Initialize(initMana, initMana);
+        exp.Initialize(0.0f, Mathf.Floor(50 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        statinit(1, 1, 1, 1, 0);
+        playerName.text = "";
+        Class = "";
+        playerLevel.text = "Lv." + MyLevel;
+    }
+
+    private void statinit(int str, int vit, int agi, int intel, int bonus)
+    {
+        strength = str;
+        vitality = vit;
+        agility = agi;
+        intellegence = intel;
+        statpoint = bonus;
     }
 
     private void statUpdate()
@@ -267,8 +312,8 @@ public class Player : Character {
         strike_rate = agility / 5 * 0.1f;
         dodge_rate = agility / 5 * 0.2f;
         magic_res = 0f;
-        health.MyMaxValue = Player.MyInstance.MyInitHealth + (vitality - 4) * 16;
-        mana.MyMaxValue = Player.MyInstance.MyInitMana + (intellegence - 4) * 12;
+        health.MyMaxValue = MyInitHealth + (vitality - 4) * 16;
+        mana.MyMaxValue = MyInitMana + (intellegence - 4) * 12;
     }
 
     private void GetInput()
@@ -322,7 +367,13 @@ public class Player : Character {
 
         exitIndex = (int)RightPressed;
     }
-    
+
+    public int calcDamage(int damage_percentage)
+    {
+        int dmg = Random.Range(damage_percentage * MyMinAtk / 100, damage_percentage * MyMaxAtk / 100);
+        return dmg;
+    }
+
     private IEnumerator Attack(string spellName)
     {
         int[] numbers;
@@ -346,6 +397,7 @@ public class Player : Character {
             {
                 damage *= 2;
             }
+
             s.Initialize(currentTarget, damage, newSpell.MySpellNumber, transform);
 
             numbers = DamageTextManager.MyInstance.seperateNumber(damage);
@@ -375,7 +427,7 @@ public class Player : Character {
 
         if (MyTarget != null && MyTarget.GetComponentInParent<Enemy>().IsAlive && !IsAttacking && InLineOfSight())
         {
-            attackRoutine = StartCoroutine(Attack(spellName));
+            actionRoutine = StartCoroutine(Attack(spellName));
         }
     }
 
@@ -414,9 +466,9 @@ public class Player : Character {
 
         MyAnimator.SetBool("Attack", IsAttacking);
 
-        if (attackRoutine != null)
+        if (actionRoutine != null)
         {
-            StopCoroutine(attackRoutine);
+            StopCoroutine(actionRoutine);
         }
     }
 
@@ -462,6 +514,18 @@ public class Player : Character {
         }
     }
 
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract();
+                interactable = null;
+            }
+        }
+    }
+
     public bool IsStrikeAttack()
     {
         float tmp = Random.Range(0.1f, 100.0f);
@@ -483,118 +547,113 @@ public class Player : Character {
         numbers = DamageTextManager.MyInstance.seperateNumber(mana);
 
         for (int i = 0; i < numbers.Length; i++)
-            DamageTextManager.MyInstance.CreateText(transform.position, numbers[i], DMGTEXTTYPE.MANAHEAL, false);
+        {
+            float adj = numbers.Length / 2;
+
+            if (numbers.Length % 2 == 0)
+                adj -= 0.5f;
+
+            Vector3 tmpVector3 = new Vector3(0.4f * (i - adj), 0, 0);
+
+            tmpVector3 += MyTarget.transform.position;
+
+            DamageTextManager.MyInstance.CreateText(tmpVector3, numbers[i], DMGTEXTTYPE.MANAHEAL, false);
+        }
+    }
+
+    public void Gather(string skillName)
+    {
+        if (!IsAttacking)
+        {
+            actionRoutine = StartCoroutine(GatherRoutine(skillName));
+        }
+    }
+
+    private IEnumerator GatherRoutine(string skillName)
+    {
+        Transform currentTarget = MyTarget;
+
+        Spell newSpell = SpellBook.MyInstance.CastSpell(skillName);
+
+        IsAttacking = true;
+
+        MyAnimator.SetBool("Attack", IsAttacking);
+
+        yield return new WaitForSeconds(newSpell.MyCastTime);
+
+        StopAttack();
     }
 
     //STATUS FUNCTION
-    public void str_stat_up()
+    public void StatUp(GameObject button)
     {
-        if (statpoint <= 0)
+        SoundManager.MyInstance.onClickSmallButton();
+
+        if (statpoint > 0)
         {
-            return;
-        } else
-        {
-            temp_str++;
-            strength++;
             statpoint--;
+
+            switch (button.name)
+            {
+                case "공격_능력":
+                    temp_str++;
+                    strength++;
+                    break;
+                case "체력_능력":
+                    temp_vit++;
+                    vitality++;
+                    break;
+                case "민첩_능력":
+                    temp_agi++;
+                    agility++;
+                    break;
+                case "지력_능력":
+                    temp_int++;
+                    intellegence++;
+                    break;
+            }
         }
     }
 
-    public void vit_stat_up()
+    public void StatDown(GameObject button)
     {
-        if (statpoint <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_vit++;
-            vitality++;
-            statpoint--;
-        }
-    }
+        SoundManager.MyInstance.onClickSmallButton();
 
-    public void agi_stat_up()
-    {
-        if (statpoint <= 0)
+        switch (button.name)
         {
-            return;
-        }
-        else
-        {
-            temp_agi++;
-            agility++;
-            statpoint--;
-        }
-    }
+            case "공격_능력":
+                if (temp_str > 0)
+                {
+                    temp_str--;
+                    strength--;
+                    statpoint++;
+                }
+                break;
+            case "체력_능력":
+                if (temp_vit > 0)
+                {
+                    temp_vit--;
+                    vitality--;
+                    statpoint++;
+                }
+                break;
+            case "민첩_능력":
+                if (temp_agi > 0)
+                {
+                    temp_agi--;
+                    agility--;
+                    statpoint++;
+                }
 
-    public void int_stat_up()
-    {
-        if (statpoint <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_int++;
-            intellegence++;
-            statpoint--;
-        }
-    }
-
-    public void str_stat_down()
-    {
-        if (temp_str <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_str--;
-            strength--;
-            statpoint++;
-        }
-    }
-
-    public void vit_stat_down()
-    {
-        if (temp_vit <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_vit--;
-            vitality--;
-            statpoint++;
-        }
-    }
-
-    public void agi_stat_down()
-    {
-        if (temp_agi <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_agi--;
-            agility--;
-            statpoint++;
-        }
-    }
-
-    public void int_stat_down()
-    {
-        if (temp_int <= 0)
-        {
-            return;
-        }
-        else
-        {
-            temp_int--;
-            intellegence--;
-            statpoint++;
+                break;
+            case "지력_능력":
+                if (temp_int > 0)
+                {
+                    temp_int--;
+                    intellegence--;
+                    statpoint++;
+                }
+                break;
         }
     }
 
@@ -610,15 +669,29 @@ public class Player : Character {
     {
         statpoint += temp_str;
         strength -= temp_str;
-        temp_str = 0;
+
         statpoint += temp_vit;
         vitality -= temp_vit;
-        temp_vit = 0;
+
         statpoint += temp_agi;
         agility -= temp_agi;
-        temp_agi = 0;
+
         statpoint += temp_int;
         intellegence -= temp_int;
-        temp_int = 0;
+
+        stat_apply();
     }
+
+    public void UpdateLevelText()
+    {
+        playerLevel.text = "Lv." + MyLevel.ToString();
+    }
+
+    /*public void AddAttacker(Enemy enemy)
+    {
+        if (!MyAttackers.Contains(enemy))
+        {
+            MyAttackers.Add(enemy);
+        }
+    }*/
 }

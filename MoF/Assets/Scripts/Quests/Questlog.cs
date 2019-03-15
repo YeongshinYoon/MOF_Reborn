@@ -49,9 +49,15 @@ public class Questlog : MonoBehaviour {
     [SerializeField]
     private Text reward_RIBI;
 
-    //private QuestScript[] questScripts;
-
     private List<QuestScript> questScripts = new List<QuestScript>();
+
+    public List<QuestScript> MyQuestScripts
+    {
+        get
+        {
+            return questScripts;
+        }
+    }
 
     private List<GameObject> questObjects = new List<GameObject>();
 
@@ -148,7 +154,7 @@ public class Questlog : MonoBehaviour {
             title.text = quest.MyTitle;
             description.text = quest.MyDescription;
             objective.text = obj_str;
-            questGiver.text = quest.MyQuestGiver;
+            questGiver.text = quest.MyQuestGiverName;
             questGiverImage.sprite = quest.MyQuestGiverImage;
             questGiverImage.gameObject.SetActive(true);
             reward_EXP.text = quest.MyRewardEXP + "";
